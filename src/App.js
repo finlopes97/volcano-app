@@ -37,11 +37,14 @@ function App() {
         </a>
 
         <div className={`App ${colorBlindMode}`}>
-          <button onClick={() => toggleColorBlindMode('normal')} className={`colorButton ${colorBlindMode}`}>Normal</button>
-          <button onClick={() => toggleColorBlindMode('protanopia')} className={`colorButton ${colorBlindMode}`}>Protanopia</button>
-          <button onClick={() => toggleColorBlindMode('deuteranopia')} className={`colorButton ${colorBlindMode}`}>Deuteranopia</button>
-          <button onClick={handleFetchData} className={`colorButton ${colorBlindMode}`}>Fetch Test Data</button>
+          <button onClick={() => toggleColorBlindMode('normal')} className={`button ${colorBlindMode}`}>Normal</button>
+          <button onClick={() => toggleColorBlindMode('protanopia')} className={`button ${colorBlindMode}`}>Protanopia</button>
+          <button onClick={() => toggleColorBlindMode('deuteranopia')} className={`button ${colorBlindMode}`}>Deuteranopia</button>
+          <button onClick={handleFetchData} className={`button ${colorBlindMode}`}>Fetch Test Data</button>
           <p>Hello, World!</p>
+        </div>
+
+        <div className={`${colorBlindMode}`}>
         </div>
       </header>
     </div>
