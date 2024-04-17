@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.colorButton {
+  border-radius: 12px;
+  border: solid;
+  font-weight: 700;
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
+.normal {
+  color: #ABC3C9;
+  background: #382119;
+}
+
+.protanopia {
+  color: #8EBCC5;
+  background: #2E2B21;
+}
+
+.deuteranopia {
+  color: #CABBCD;
+  background: #342A1F;
+}
+
+/*# sourceMappingURL=App.css.map */

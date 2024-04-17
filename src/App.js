@@ -1,22 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './style/App.css';
+
+function fetchData(callback) {
+  fetch('http://4.237.58.241:3000/volcanoes?country=Algeria&populatedWithin=100km')
+    .then(response => response.json())
+    .then(data => callback(data))
+    .catch(error => console.error('Error fetching data:', error));
+}
 
 function App() {
+  const [colorBlindMode, setColorBlindMode] = useState('normal');
+
+  const toggleColorBlindMode = (mode) => {
+    setColorBlindMode(mode);
+  }
+
+  const handleFetchData = () => {
+    fetchData(response => {
+      console.log(response);
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className={`App ${colorBlindMode}`}>
+      <header className={`App-header ${colorBlindMode}`}>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Hello, World!
         </p>
         <a
-          className="App-link"
+          className={`App-link ${colorBlindMode}`}
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
           Learn React
         </a>
+
+        <div className={`App ${colorBlindMode}`}>
+          <button onClick={() => toggleColorBlindMode('normal')} className={`colorButton ${colorBlindMode}`}>Normal</button>
+          <button onClick={() => toggleColorBlindMode('protanopia')} className={`colorButton ${colorBlindMode}`}>Protanopia</button>
+          <button onClick={() => toggleColorBlindMode('deuteranopia')} className={`colorButton ${colorBlindMode}`}>Deuteranopia</button>
+          <button onClick={handleFetchData} className={`colorButton ${colorBlindMode}`}>Fetch Test Data</button>
+          <p>Hello, World!</p>
+        </div>
       </header>
     </div>
   );
