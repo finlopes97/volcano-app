@@ -1,46 +1,227 @@
+@import url("https://fonts.googleapis.com/css?family=Baskervville:700|Montserrat:400");
+/* Base Colour Schemes */
+/* Fonts setup */
+* {
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Baskervville";
+  font-weight: 700;
+}
+
+html {
+  font-size: 100%;
+} /* 16px */
+h1 {
+  font-size: 3.053rem; /* 48.8px */
+}
+
+h2 {
+  font-size: 2.442rem; /* 39.04px */
+}
+
+h3 {
+  font-size: 1.954rem; /* 31.2px */
+}
+
+h4 {
+  font-size: 1.563rem; /* 24.96px */
+}
+
+h5 {
+  font-size: 1.25rem; /* 20px */
+}
+
+small {
+  font-size: 0.8rem; /* 12.8px */
+}
+
+/* START SECTION - BODY */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #1f0a0b;
+  background-color: #fefbfb;
+}
+
+/* END SECTION - BODY */
+/* START SECTION - HEADER */
+nav {
+  padding: 8px 32px;
+}
+
+ul {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+  text-decoration: underline solid transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: 100ms ease-in-out;
+}
+
+li:hover {
+  text-decoration-color: #e55254;
+}
+
+li#first-link {
+  margin-right: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* END SECTION - HEADER */
+/* START SECTION - CONTAINERS */
+.container {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column;
+}
+
+/* END SECTION */
+/* START SECTION - JUMBOTRON */
+.jumbotron {
+  background-color: #040101;
+  color: #f5e0e1;
+  align-items: center;
+  padding: 64px 128px;
+}
+
+h3#cta-heading {
+  margin-top: 24px;
+}
+
+form#cta-form {
+  margin: 12px;
+}
+
+input[type=submit]#cta-submit {
+  border: none;
+  border-radius: 8px;
+  padding: 4px;
+  margin-left: 24px;
+  font-size: 100%;
+  background-color: #ea9093;
+  color: #1f0a0b;
+  text-decoration: underline solid transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: 100ms ease-in-out;
+}
+
+input[type=submit]#cta-submit:hover {
+  text-decoration-color: #ad1a1c;
+}
+
+/* END SECTION */
+/* START SECTION - QUOTE */
+.quote {
+  background-color: #E5E7EB;
+  padding: 64px 128px;
+}
+
+.quote blockquote {
+  color: #f5e0e1;
+  text-align: center;
+  font-size: 32px;
+  font-style: italic;
+  text-shadow: 0 0 8px #1F2937;
+}
+
+.cite {
+  margin-top: 8px;
+  text-align: end;
+  font-weight: extra-bold;
+  font-style: normal;
+  font-size: 24px;
+}
+
+.parallax {
+  background-image: url("/src/img/volcano-home.jpg");
+  min-height: 200px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* END SECTION */
+/* START SECTION - CONTENT */
+.content {
+  margin: 32px auto;
+  padding: 0 128px;
+}
+
+.content h3 {
+  font-size: 36px;
+  font-weight: extra-bold;
+  color: #1F2937;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.content .row {
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card p {
+  color: #1F2937;
   text-align: center;
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.card img {
+  width: 150px;
+  height: auto;
+  align-self: center;
+  border: 2px solid #3882F6;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+/* END SECTION */
+/* START SECTION - FOOTER */
+.footer {
+  background-color: #040101;
+  color: #f5e0e1;
+  padding: 32px 128px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.title {
-  justify-self: left;
-  margin-left: auto;
-}
-
-.nav-button {
-  border-radius: 12px;
-  border: solid;
-  font-weight: 700;
-  padding: 1rem;
-  margin: 0.5rem;
-}
-
-.normal {
-  color: #ABC3C9;
-  background: #382119;
-}
-
-.protanopia {
-  color: #8EBCC5;
-  background: #2E2B21;
-}
-
-.deuteranopia {
-  color: #CABBCD;
-  background: #342A1F;
-}
+/* END SECTION */
 
 /*# sourceMappingURL=App.css.map */
