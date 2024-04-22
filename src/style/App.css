@@ -185,17 +185,19 @@ input[type=submit]#cta-submit:hover {
   font-size: 36px;
   font-weight: extra-bold;
   color: #1F2937;
-  text-align: center;
+  text-align: left;
   margin-bottom: 32px;
 }
 
 .content .row {
-  gap: 16px;
+  gap: 100px;
+  justify-content: space-around;
 }
 
 .card {
   display: flex;
   flex-direction: column;
+  width: 200px;
 }
 
 .card p {
