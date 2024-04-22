@@ -22,32 +22,19 @@ function App() {
   };
 
   return (
-    <div className={`App ${colorBlindMode}`}>
-      <header className={`App-header ${colorBlindMode}`}>
-        <p>
-          Hello, World!
-        </p>
-        <a
-          className={`App-link ${colorBlindMode}`}
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-
-        <div className={`App ${colorBlindMode}`}>
-          <button onClick={() => toggleColorBlindMode('normal')} className={`button ${colorBlindMode}`}>Normal</button>
-          <button onClick={() => toggleColorBlindMode('protanopia')} className={`button ${colorBlindMode}`}>Protanopia</button>
-          <button onClick={() => toggleColorBlindMode('deuteranopia')} className={`button ${colorBlindMode}`}>Deuteranopia</button>
-          <button onClick={handleFetchData} className={`button ${colorBlindMode}`}>Fetch Test Data</button>
-          <p>Hello, World!</p>
-        </div>
-
-        <div className={`${colorBlindMode}`}>
-        </div>
-      </header>
-    </div>
+      <div className="App colorBlindMode">
+        <header className="App-header">
+            <h1 className="title">Hot Volcanoes in Your Area</h1>
+            <nav>
+                <ul className="navList">
+                    <button className="nav-button colorBlindMode">Home</button>
+                    <button className="nav-button colorBlindMode">Volcano List</button>
+                    <button className="nav-button colorBlindMode">Sign Up</button>
+                    <button className="nav-button colorBlindMode">Login</button>
+                </ul>
+            </nav>
+        </header>
+      </div>
   );
 }
 

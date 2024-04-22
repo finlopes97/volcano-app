@@ -3,21 +3,31 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-.button {
+.title {
+    justify-self: left;
+    margin-left: auto;
+}
+
+.nav-list {
+}
+
+// 
+// Button styles
+// 
+
+.nav-button {
   border-radius: 12px;
   border: solid;
   font-weight: 700;
@@ -25,18 +35,20 @@
   margin: 0.5rem;
 }
 
+//
+// Color Blind Modes
+//
+
 // Base color scheme
 $base-primary: #ABC3C9;
 $base-secondary: #E0DCD3;
 $base-accent: #CCBE9F;
 $base-background: #382119;
-
 // Protanopia color scheme
 $protanopia-primary: #8EBCC5;
 $protanopia-secondary: #E2DAD1;
 $protanopia-accent: #C9BD9E;
 $protanopia-background: #2E2B21;
-
 // Deuteranopia color scheme
 $deuteranopia-primary: #CABBCD;
 $deuteranopia-secondary: #F4D4D4;
@@ -47,12 +59,10 @@ $deuteranopia-background: #342A1F;
   color: $base-primary;
   background: $base-background;
 }
-
 .protanopia {
   color: $protanopia-primary;
   background: $protanopia-background;  
 }
-
 .deuteranopia {
   color: $deuteranopia-primary;
   background: $deuteranopia-background;
@@ -64,3 +74,6 @@ $deuteranopia-background: #342A1F;
 //   color: #0080ff;
 // }
 
+// 
+// 
+//
