@@ -1,0 +1,16 @@
+@import 'main';
+
+.volcano-content {
+    background-color: map-get(map-get($themes, dark), background);
+    color: map-get(map-get($themes, dark), text);
+    height: 100vh;
+}
+
+.volcano-info {
+    padding: 16px;
+    align-items: center;
+}
+
+.volcano-info p {
+    margin: 8px 0;
+}
