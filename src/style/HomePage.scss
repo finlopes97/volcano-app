@@ -19,21 +19,21 @@ input[type="email"]#cta-email {
   border: none;
   border-radius: 8px;
 
-  padding: 4px;
+  padding: 8px;
   margin: 8px;
 
   font-size: 100%;
   background-color: map-get(map-get($themes, light), background);
   color: map-get(map-get($themes, light), text);
 
-  width: 300px;
+  width: 500px;
 }
 
 input[type="submit"]#cta-submit {
   border: none;
   border-radius: 8px;
 
-  padding: 4px;
+  padding: 8px;
   margin: 8px;
 
   font-size: 100%;
@@ -54,16 +54,16 @@ input[type="submit"]#cta-submit:hover {
 
 /* START SECTION - QUOTE */
 .quote {
-  background-color: #e5e7eb;
+  background-color: #FFF;
   padding: 64px 128px;
 }
 
 .quote blockquote {
-  color: #f5e0e1;
+  color: #FFF;
   text-align: center;
   font-size: 32px;
   font-style: italic;
-  text-shadow: 0 0 8px #1f2937;
+  text-shadow: 0 0 4px #000;
 }
 
 .cite {

@@ -24,21 +24,25 @@ function Volcano() {
   }
 
   return (
-    <div className="container col volcano-content">
-      <div className="container col volcano-info">
-        <h2>{volcano.name}</h2>
-        <p>Country: {volcano.country}</p>
-        <p>Region: {volcano.region}</p>
-        <p>Subregion: {volcano.subregion}</p>
-        <p>Last Eruption: {volcano.last_eruption}</p>
-        <p>Summit: {volcano.summit}</p>
-        <p>Elevation: {volcano.elevation}</p>
-        <p>Latitude: {volcano.latitude}</p>
-        <p>Longitude: {volcano.longitude}</p>
+    <div className="container col">
+      <div className="container row volcano-content">
+        <div className="container col volcano-info">
+          <h2>{volcano.name}</h2>
+          <p>Country: {volcano.country}</p>
+          <p>Region: {volcano.region}</p>
+          <p>Subregion: {volcano.subregion}</p>
+          <p>Last Eruption: {volcano.last_eruption}</p>
+          <p>Summit: {volcano.summit}</p>
+          <p>Elevation: {volcano.elevation}</p>
+        </div>
+        <div className="container col">
+          <h2>Population Data</h2>
+          <p>Not available without an account.</p>
+        </div>
       </div>
       <div className="volcano-map">
         <Map
-					height={400}
+          height={400}
           defaultCenter={[
             volcano.latitude ? parseFloat(volcano.latitude) : 0,
             volcano.longitude ? parseFloat(volcano.longitude) : 0,

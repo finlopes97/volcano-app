@@ -68,16 +68,16 @@ html {
 .volcano-content {
   background-color: #040101;
   color: #f5e0e1;
-  height: 100vh;
+  padding: 16px;
+  justify-content: space-around;
 }
 
 .volcano-info {
-  padding: 16px;
-  align-items: center;
+  align-items: left;
 }
 
-.volcano-info p {
-  margin: 8px 0;
+.volcano-content p {
+  margin: 4px 0;
 }
 
 /*# sourceMappingURL=Volcano.css.map */
