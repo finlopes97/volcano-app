@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 // import VolcanoList from "./components/VolcanoList";
 import Volcano from "./components/Volcano";
-// import SignUp from "./components/SignUp";
+import SignUp from "./components/SignUp";
 // import Login from "./components/Login";
 // import NotFound from "./components/NotFound";
 
@@ -19,12 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/volcano/:id" element={<Volcano />} />
-          {
-            /* <Route path="/volcano-list" component={VolcanoList} /> */
-            /* <Route path="/sign-up" component={SignUp} />
-        <Route path="/login" component={Login} />
-        <Route component={NotFound} /> */
-          }
+          <Route path="/sign-up" element={<SignUp />} />
         </Routes>
         <footer className="container row footer">© 1997-2024 FINLOPES97</footer>
       </div>

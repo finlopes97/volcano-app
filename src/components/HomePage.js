@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Map, Marker } from "pigeon-maps";
 
 import "../style/HomePage.css";
@@ -8,9 +8,16 @@ function getRandomNumber() {
   return Math.floor(Math.random() * 251);
 }
 
-function MainPage() {
+function HomePage() {
   const [volcanoes, setVolcanoes] = useState([]);
   const [volcanoId, setVolcanoId] = useState(0);
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/sign-up?email=${email}`);
+  };
 
   useEffect(() => {
     const fetchVolcanoData = async () => {
@@ -53,11 +60,17 @@ function MainPage() {
             egestas sed sed risus.
           </p>
           <h3 id="cta-heading">Stay Connected</h3>
-          <form id="cta-form" className="container col">
+          <form id="cta-form" className="container col" onSubmit={handleSubmit}>
             <label className="container col">
               Your Email:
               <div className="container row">
-                <input id="cta-email" type="email" name="userEmail" />
+                <input
+                  id="cta-email"
+                  type="email"
+                  name="userEmail"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
                 <input id="cta-submit" type="submit" value="Sign Up" />
               </div>
             </label>
@@ -81,7 +94,7 @@ function MainPage() {
                 <Map
                   height={200}
                   defaultCenter={[
-                    volcano.latitude ? parseFloat(volcano.latitude) : 0, 
+                    volcano.latitude ? parseFloat(volcano.latitude) : 0,
                     volcano.longitude ? parseFloat(volcano.longitude) : 0,
                   ]}
                   defaultZoom={11}
@@ -89,7 +102,7 @@ function MainPage() {
                   <Marker
                     width={25}
                     anchor={[
-                      volcano.latitude ? parseFloat(volcano.latitude) : 0, 
+                      volcano.latitude ? parseFloat(volcano.latitude) : 0,
                       volcano.longitude ? parseFloat(volcano.longitude) : 0,
                     ]}
                     color="red"
@@ -99,7 +112,10 @@ function MainPage() {
                 <p>Region: {volcano.region}</p>
                 <p>Summit: {volcano.summit}</p>
                 <p>Last Eruption: {volcano.last_eruption}</p>
-                <Link to={`/volcano/${volcanoId[index]}`} className="volcano-link">
+                <Link
+                  to={`/volcano/${volcanoId[index]}`}
+                  className="volcano-link"
+                >
                   Learn More
                 </Link>
               </div>
@@ -111,4 +127,4 @@ function MainPage() {
   );
 }
 
-export default MainPage;
+export default HomePage;
