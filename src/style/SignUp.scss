@@ -1,0 +1,71 @@
+@import "Main";
+/* START SECTION - SIGNUP */
+.signup {
+  background-color: map-get(map-get($themes, dark), background);
+  color: map-get(map-get($themes, dark), text);
+}
+
+.signup-form {
+  margin-right: auto;
+  justify-content: left;
+  min-width: 600px;
+  padding: 128px;
+}
+
+input[type="email"]#signup-email {
+  border: none;
+  border-radius: 8px;
+
+  padding: 8px;
+  margin: 8px;
+
+  font-size: 100%;
+  background-color: map-get(map-get($themes, light), background);
+  color: map-get(map-get($themes, light), text);
+
+  width: 500px;
+}
+input[type="password"]#signup-password,
+input[type="text"]#signup-password {
+  border: none;
+  border-radius: 8px;
+
+  padding: 8px;
+  margin: 8px;
+
+  font-size: 100%;
+  background-color: map-get(map-get($themes, light), background);
+  color: map-get(map-get($themes, light), text);
+
+  width: 500px;
+}
+
+input[type="submit"]#signup-submit {
+  border: none;
+  border-radius: 8px;
+
+  padding: 8px;
+  margin: 8px;
+
+  font-size: 100%;
+  background-color: map-get(map-get($themes, light), background);
+  color: map-get(map-get($themes, light), text);
+
+  text-decoration: underline solid transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: 100ms ease-in-out;
+}
+
+input[type="submit"]#signup-submit:hover {
+  text-decoration-color: #ad1a1c;
+}
+
+.show-password {
+  margin-left: 8px;
+	background: none;
+	border: none;
+	width: 32px;
+	height: auto;
+	color: #FFF;
+}
