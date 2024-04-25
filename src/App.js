@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/volcano/:id" element={<Volcano />} />
-          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
         <footer className="container row footer">© 1997-2024 FINLOPES97</footer>
       </div>

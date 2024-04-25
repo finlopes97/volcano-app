@@ -23,8 +23,8 @@ function SignUp() {
   return (
     <div className="container col signup">
       <form className="container col signup-form">
-        <h2>Sign Up</h2>
-        <label>
+        <h2 className="signup-heading">Sign Up</h2>
+        <label className="container col">
           Email:
           <input
             type="email"
@@ -34,25 +34,27 @@ function SignUp() {
             autoComplete="email"
           />
         </label>
-        <label>
+        <label className="container col">
           Password:
-          <input
-            type={showPassword ? "text" : "password"}
-            name="password"
-            id="signup-password"
-            autoComplete="off"
-          />
-          <button
-            type="button"
-            onClick={toggleShowPassword}
-            className="show-password"
-          >
-            {showPassword ? (
-              <FontAwesomeIcon icon={faEye} />
-            ) : (
-              <FontAwesomeIcon icon={faEyeSlash} />
-            )}
-          </button>
+          <div className="container row">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              id="signup-password"
+              autoComplete="off"
+            />
+            <button
+              type="button"
+              onClick={toggleShowPassword}
+              className="show-password"
+            >
+              {showPassword ? (
+                <FontAwesomeIcon icon={faEye} />
+              ) : (
+                <FontAwesomeIcon icon={faEyeSlash} />
+              )}
+            </button>
+          </div>
         </label>
         <input id="signup-submit" type="submit" value="Sign Up" />
       </form>

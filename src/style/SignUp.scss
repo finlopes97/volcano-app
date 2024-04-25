@@ -5,6 +5,10 @@
   color: map-get(map-get($themes, dark), text);
 }
 
+.signup-heading {
+	margin-bottom: 24px;
+}
+
 .signup-form {
   margin-right: auto;
   justify-content: left;

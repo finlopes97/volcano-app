@@ -71,6 +71,10 @@ html {
   color: #f5e0e1;
 }
 
+.signup-heading {
+  margin-bottom: 24px;
+}
+
 .signup-form {
   margin-right: auto;
   justify-content: left;
