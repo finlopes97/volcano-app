@@ -48,33 +48,12 @@ input[type=submit]#cta-submit:hover {
   background-color: #e55254;
 }
 
-.quote {
-  background-color: #FFF;
-  padding: 64px 128px;
-}
-
-.quote blockquote {
-  color: #FFF;
-  text-align: center;
-  font-size: 32px;
-  font-style: italic;
-  text-shadow: 0 0 4px #000;
-}
-
-.cite {
-  margin-top: 8px;
-  text-align: end;
-  font-weight: extra-bold;
-  font-style: normal;
-  font-size: 24px;
-}
-
 .parallax {
-  background-image: url("/src/images/volcano-home.jpg");
-  min-height: 200px;
+  background-image: url("/src/images/volcano-alt.jpg");
+  min-height: 300px;
   margin: 0;
   background-attachment: fixed;
-  background-position: bottom;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }

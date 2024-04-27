@@ -19,7 +19,7 @@ function Header() {
           </li>
           <li>
             <Link to="/signup" className="nav-link">
-              Sign Up
+              Create Account
             </Link>
           </li>
           <li>

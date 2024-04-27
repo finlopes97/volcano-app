@@ -78,13 +78,7 @@ function HomePage() {
           </form>
         </div>
       </div>
-      <div className="container row quote parallax">
-        <blockquote cite="Meet Dave">
-          This is a picture of a volcano with a sick parallax effect, if only
-          there were more stuff on this page I could scroll down.
-          <div className="cite">- Whimsical Web Developer</div>
-        </blockquote>
-      </div>
+      <div className="container row quote parallax"></div>
       <div className="container col content">
         <h3>Hot Volcanoes In Your Area</h3>
         <div className="container row">

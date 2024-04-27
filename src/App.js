@@ -6,7 +6,7 @@ import HomePage from "./components/HomePage";
 // import VolcanoList from "./components/VolcanoList";
 import Volcano from "./components/Volcano";
 import SignUp from "./components/SignUp";
-// import Login from "./components/Login";
+import Login from "./components/Login";
 // import NotFound from "./components/NotFound";
 import Footer from "./components/Footer";
 
@@ -22,6 +22,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/volcano/:id" element={<Volcano />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
       </div>

@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
-import "../style/SignUp.css";
+import "../style/Login.css";
 
-function SignUp() {
-  const location = useLocation();
+function Login() {
   const navigate = useNavigate();
-  const queryParams = new URLSearchParams(location.search);
-  const email = queryParams.get("email");
   const [showPassword, setShowPassword] = useState(true);
   const [password, setPassword] = useState("");
 
@@ -17,8 +14,8 @@ function SignUp() {
     navigate(`/`);
   };
 
-  const handleLogin = () => {
-    navigate(`/login`);
+  const handleSignUp = () => {
+    navigate(`/signup`);
   };
 
   const handlePasswordChange = (event) => {
@@ -30,16 +27,15 @@ function SignUp() {
   };
 
   return (
-    <div className="container col signup-form">
+    <div className="container col login-form">
       <form className="container col">
-        <h2 className="signup-heading">Create a free account.</h2>
+        <h2 className="login-heading">Sign into your account.</h2>
         <label className="container col">
           Email:
           <input
             type="email"
             name="email"
-            id="signup-email"
-            defaultValue={email}
+            id="login-email"
             autoComplete="email"
           />
         </label>
@@ -49,7 +45,7 @@ function SignUp() {
             <input
               type={showPassword ? "text" : "password"}
               name="password"
-              id="signup-password"
+              id="login-password"
               autoComplete="off"
             />
             <button
@@ -65,12 +61,12 @@ function SignUp() {
             </button>
           </div>
         </label>
-        <input id="signup-submit" type="submit" value="Create Account" />
+        <input id="login-submit" type="submit" value="Sign In" />
         <div className="container row">
-          <button className="signup-button" type="button" onClick={handleLogin}>
-            Have an account? Sign in
+          <button className="login-button" type="button" onClick={handleSignUp}>
+            No account? Create one
           </button>
-          <button className="signup-button" type="button" onClick={handleGoBack}>
+          <button className="login-button" type="button" onClick={handleGoBack}>
             Go back
           </button>
         </div>
@@ -79,4 +75,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Login;
