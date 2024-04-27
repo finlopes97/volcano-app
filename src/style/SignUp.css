@@ -1,57 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Baskervville:700|Montserrat:400");
-/* Base Colour Schemes */
-/* Fonts setup */
-* {
-  font-family: "Montserrat";
-  font-weight: 400;
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: "Baskervville";
-  font-weight: 700;
-}
-
-html {
-  font-size: 100%;
-} /* 16px */
-h1 {
-  font-size: 3.053rem; /* 48.8px */
-}
-
-h2 {
-  font-size: 2.442rem; /* 39.04px */
-}
-
-h3 {
-  font-size: 1.954rem; /* 31.2px */
-}
-
-h4 {
-  font-size: 1.563rem; /* 24.96px */
-}
-
-h5 {
-  font-size: 1.25rem; /* 20px */
-}
-
-small {
-  font-size: 0.8rem; /* 12.8px */
-}
-
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-/* START SECTION - CONTAINERS */
 .container {
   display: flex;
 }
@@ -64,31 +11,24 @@ html {
   flex-direction: column;
 }
 
-/* END SECTION */
-/* START SECTION - SIGNUP */
-.signup {
-  background-color: #040101;
-  color: #f5e0e1;
-}
-
 .signup-heading {
   margin-bottom: 24px;
 }
 
 .signup-form {
-  margin-right: auto;
-  justify-content: left;
-  min-width: 600px;
+  width: auto;
   padding: 128px;
+  justify-content: center;
+  align-items: center;
 }
 
 input[type=email]#signup-email {
   border: none;
+  background-color: #ea9093;
   border-radius: 8px;
   padding: 8px;
   margin: 8px;
   font-size: 100%;
-  background-color: #fefbfb;
   color: #1f0a0b;
   width: 500px;
 }
@@ -96,12 +36,11 @@ input[type=email]#signup-email {
 input[type=password]#signup-password,
 input[type=text]#signup-password {
   border: none;
+  background-color: #ea9093;
   border-radius: 8px;
   padding: 8px;
   margin: 8px;
   font-size: 100%;
-  background-color: #fefbfb;
-  color: #1f0a0b;
   width: 500px;
 }
 
@@ -111,16 +50,11 @@ input[type=submit]#signup-submit {
   padding: 8px;
   margin: 8px;
   font-size: 100%;
-  background-color: #fefbfb;
-  color: #1f0a0b;
-  text-decoration: underline solid transparent;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
-  transition: 100ms ease-in-out;
+  background-color: #ea9093;
 }
 
 input[type=submit]#signup-submit:hover {
-  text-decoration-color: #ad1a1c;
+  background-color: #e55254;
 }
 
 .show-password {
@@ -128,8 +62,9 @@ input[type=submit]#signup-submit:hover {
   background: none;
   border: none;
   width: 32px;
-  height: auto;
-  color: #FFF;
+  height: 32px;
+  background-color: #ea9093;
+  color: #1f0a0b;
 }
 
 /*# sourceMappingURL=SignUp.css.map */

@@ -1,0 +1,19 @@
+@import "Variables";
+@import "Containers";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+  padding: 8px 32px;
+  border-top: solid;
+  border-color: map-get(map-get($themes, light), accent);
+  justify-content: center;
+}

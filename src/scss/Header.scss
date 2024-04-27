@@ -1,47 +1,32 @@
-@import url("https://fonts.googleapis.com/css?family=Baskervville:700|Montserrat:400");
-.container {
-  display: flex;
-}
-
-.row {
-  flex-direction: row;
-}
-
-.col {
-  flex-direction: column;
-}
+@import "Variables";
+@import "Containers";
 
 nav {
   padding: 8px 32px;
   border-bottom: solid;
-  border-color: #e55254;
+  border-color: map-get(map-get($themes, light), accent);
 }
-
 ul {
   display: flex;
   gap: 32px;
   align-items: center;
 }
-
 li {
   list-style: none;
+
   text-decoration: underline solid transparent;
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
+
   transition: 100ms ease-in-out;
 }
-
 li:hover {
-  text-decoration-color: #e55254;
+  text-decoration-color: map-get(map-get($themes, light), accent);
 }
-
 li#first-link {
   margin-right: auto;
 }
-
 a {
   text-decoration: none;
   color: inherit;
 }
-
-/*# sourceMappingURL=Header.css.map */

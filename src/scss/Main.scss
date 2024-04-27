@@ -1,0 +1,24 @@
+@import "Variables";
+@import "Containers";
+
+* {
+  font-family: 'Montserrat';
+  font-weight: 400;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Baskervville';
+  font-weight: 700;
+}
+html {font-size: 100%;} /* 16px */
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}

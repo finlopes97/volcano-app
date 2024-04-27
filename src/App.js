@@ -8,7 +8,9 @@ import Volcano from "./components/Volcano";
 import SignUp from "./components/SignUp";
 // import Login from "./components/Login";
 // import NotFound from "./components/NotFound";
+import Footer from "./components/Footer";
 
+import "./style/Main.css";
 import "./style/App.css";
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
           <Route path="/volcano/:id" element={<Volcano />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
-        <footer className="container row footer">© 1997-2024 FINLOPES97</footer>
+        <Footer />
       </div>
     </Router>
   );

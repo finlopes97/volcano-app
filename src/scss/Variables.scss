@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Baskervville:700|Montserrat:400');
+
+$themes: (
+ light: (
+   text: #1f0a0b,
+   background: #fefbfb,
+   primary: #d03e40,
+   secondary: #ea9093,
+   accent: #e55254,
+ ),
+ dark: (
+   text: #f5e0e1,
+   background: #040101,
+   primary: #c12f31,
+   secondary: #6f1518,
+   accent: #ad1a1c,
+ ),
+);

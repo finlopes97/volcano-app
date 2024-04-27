@@ -1,6 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Baskervville:700|Montserrat:400");
-/* Base Colour Schemes */
-/* Fonts setup */
+.container {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column;
+}
+
 * {
   font-family: "Montserrat";
   font-weight: 400;
@@ -14,30 +24,6 @@ h1, h2, h3, h4, h5 {
 html {
   font-size: 100%;
 } /* 16px */
-h1 {
-  font-size: 3.053rem; /* 48.8px */
-}
-
-h2 {
-  font-size: 2.442rem; /* 39.04px */
-}
-
-h3 {
-  font-size: 1.954rem; /* 31.2px */
-}
-
-h4 {
-  font-size: 1.563rem; /* 24.96px */
-}
-
-h5 {
-  font-size: 1.25rem; /* 20px */
-}
-
-small {
-  font-size: 0.8rem; /* 12.8px */
-}
-
 html {
   box-sizing: border-box;
 }
@@ -50,20 +36,5 @@ html {
   margin: 0;
   padding: 0;
 }
-
-/* START SECTION - CONTAINERS */
-.container {
-  display: flex;
-}
-
-.row {
-  flex-direction: row;
-}
-
-.col {
-  flex-direction: column;
-}
-
-/* END SECTION */
 
 /*# sourceMappingURL=Main.css.map */

@@ -1,57 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Baskervville:700|Montserrat:400");
-/* Base Colour Schemes */
-/* Fonts setup */
-* {
-  font-family: "Montserrat";
-  font-weight: 400;
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: "Baskervville";
-  font-weight: 700;
-}
-
-html {
-  font-size: 100%;
-} /* 16px */
-h1 {
-  font-size: 3.053rem; /* 48.8px */
-}
-
-h2 {
-  font-size: 2.442rem; /* 39.04px */
-}
-
-h3 {
-  font-size: 1.954rem; /* 31.2px */
-}
-
-h4 {
-  font-size: 1.563rem; /* 24.96px */
-}
-
-h5 {
-  font-size: 1.25rem; /* 20px */
-}
-
-small {
-  font-size: 0.8rem; /* 12.8px */
-}
-
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-/* START SECTION - CONTAINERS */
 .container {
   display: flex;
 }
@@ -64,7 +11,6 @@ html {
   flex-direction: column;
 }
 
-/* END SECTION */
 .volcano-content {
   background-color: #040101;
   color: #f5e0e1;

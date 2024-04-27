@@ -1,4 +1,5 @@
-@import 'Main';
+@import "Variables";
+@import "Containers";
 
 .volcano-content {
     background-color: map-get(map-get($themes, dark), background);

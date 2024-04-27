@@ -11,12 +11,21 @@
   flex-direction: column;
 }
 
-.App {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  color: #1f0a0b;
-  background-color: #fefbfb;
+html, body {
+  height: 100%;
 }
 
-/*# sourceMappingURL=App.css.map */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+  padding: 8px 32px;
+  border-top: solid;
+  border-color: #e55254;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=Footer.css.map */

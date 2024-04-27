@@ -21,8 +21,8 @@ function SignUp() {
   };
 
   return (
-    <div className="container col signup">
-      <form className="container col signup-form">
+    <div className="container col signup-form">
+      <form className="container col">
         <h2 className="signup-heading">Sign Up</h2>
         <label className="container col">
           Email:

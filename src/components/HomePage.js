@@ -16,7 +16,7 @@ function HomePage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/sign-up?email=${email}`);
+    navigate(`/signup?email=${email}`);
   };
 
   useEffect(() => {
@@ -69,6 +69,7 @@ function HomePage() {
                   type="email"
                   name="userEmail"
                   value={email}
+                  autoComplete="email"
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <input id="cta-submit" type="submit" value="Sign Up" />
