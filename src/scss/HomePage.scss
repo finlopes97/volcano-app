@@ -4,6 +4,27 @@
 .jumbotron {
   align-items: center;
   padding: 64px 128px;
+
+  h1 {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: map-get(map-get($themes, light), accent);
+  }
+
+  blockquote {
+    padding: 8px;
+    
+  }
+  cite {
+    display: block;
+    margin-top: 5px;
+    text-align: right;
+  }
+  a {
+    font-style: italic;
+    color: map-get(map-get($themes, light), accent);
+    text-decoration: underline;
+  }
 }
 
 h3#cta-heading {

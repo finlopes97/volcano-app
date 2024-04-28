@@ -10,9 +10,11 @@ function getRandomNumber() {
 
 function HomePage() {
   const [volcanoes, setVolcanoes] = useState([]);
-  const [volcanoId, setVolcanoId] = useState(0);
+  const [volcanoIds, setVolcanoIds] = useState([]);
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,45 +22,51 @@ function HomePage() {
   };
 
   useEffect(() => {
-    const fetchVolcanoData = async () => {
-      const volcanoIds = [
-        getRandomNumber(),
-        getRandomNumber(),
-        getRandomNumber(),
-        getRandomNumber(),
-      ];
-      setVolcanoId(volcanoIds);
-      const responses = await Promise.all(
-        volcanoIds.map((id) => fetchVolcano(id))
-      );
+    const ids = [
+      getRandomNumber(),
+      getRandomNumber(),
+      getRandomNumber(),
+      getRandomNumber(),
+    ];
+    setVolcanoIds(ids);
 
-      const data = await Promise.all(
-        responses.map((response) => response.json())
+    Promise.all(ids.map((id) => fetchVolcano(id)))
+      .then((responses) => Promise.all(responses.map((res) => res.json())))
+      .then((data) => setVolcanoes(data))
+      .then(() => setIsLoading(false))
+      .catch((error) =>
+        console.error(`Failed to fetch volcano data: ${error}`)
       );
-      setVolcanoes(data);
-    };
-
-    fetchVolcanoData();
   }, []);
 
   const fetchVolcano = (volcanoId) => {
     return fetch(`http://4.237.58.241:3000/volcano/${volcanoId}`);
   };
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <main>
       <div className="container row jumbotron">
         <div className="container col">
-          <h2>Volcano Watch</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Tincidunt eget nullam non nisi. Sit amet facilisis magna etiam
-            tempor orci. Turpis cursus in hac habitasse. Diam maecenas ultricies
-            mi eget mauris pharetra. Velit euismod in pellentesque massa
-            placerat duis ultricies. Vitae turpis massa sed elementum tempus
-            egestas sed sed risus.
-          </p>
+          <h1>Volcano Watch</h1>
+          <blockquote>
+            I'm baby vegan brunch chillwave, flexitarian keytar snackwave
+            austin. Pickled poke crucifix, trust fund meggings fam iPhone
+            selfies four dollar toast chicharrones bespoke YOLO. Pok pok
+            gatekeep before they sold out tousled flannel mlkshk fixie
+            microdosing. Pork belly Brooklyn organic sriracha pinterest banh mi.
+            Ascot drinking vinegar literally, enamel pin chicharrones everyday
+            carry wayfarers street art tattooed gochujang blue bottle affogato.
+            Mustache locavore whatever ramps vibecession chicharrones wayfarers
+            pitchfork sartorial taxidermy single-origin coffee tote bag.
+            Scenester shabby chic umami food truck gastropub migas.
+            <cite>
+              Jason Cosper, <a href="https://hipsum.co/">Hipster Ipsum</a>
+            </cite>
+          </blockquote>
           <h3 id="cta-heading">Stay Connected</h3>
           <form id="cta-form" className="container col" onSubmit={handleSubmit}>
             <label className="container col">
@@ -95,7 +103,7 @@ function HomePage() {
                   defaultZoom={11}
                 >
                   <Marker
-                    width={25}
+                    width={50}
                     anchor={[
                       volcano.latitude ? parseFloat(volcano.latitude) : 0,
                       volcano.longitude ? parseFloat(volcano.longitude) : 0,
@@ -108,7 +116,7 @@ function HomePage() {
                 <p>Summit: {volcano.summit}</p>
                 <p>Last Eruption: {volcano.last_eruption}</p>
                 <Link
-                  to={`/volcano/${volcanoId[index]}`}
+                  to={`/volcano/${volcanoIds[index]}`}
                   className="volcano-link"
                 >
                   Learn More

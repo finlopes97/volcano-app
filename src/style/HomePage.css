@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Baskervville:700|Montserrat:400");
+@import url("https://fonts.googleapis.com/css?family=Cormorant%20Infant:700|Montserrat:400");
 .container {
   display: flex;
 }
@@ -14,6 +14,24 @@
 .jumbotron {
   align-items: center;
   padding: 64px 128px;
+}
+.jumbotron h1 {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #e55254;
+}
+.jumbotron blockquote {
+  padding: 8px;
+}
+.jumbotron cite {
+  display: block;
+  margin-top: 5px;
+  text-align: right;
+}
+.jumbotron a {
+  font-style: italic;
+  color: #e55254;
+  text-decoration: underline;
 }
 
 h3#cta-heading {

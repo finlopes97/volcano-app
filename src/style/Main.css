@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Baskervville:700|Montserrat:400");
+@import url("https://fonts.googleapis.com/css?family=Cormorant%20Infant:700|Montserrat:400");
 .container {
   display: flex;
 }
@@ -17,7 +17,7 @@
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: "Baskervville";
+  font-family: "Cormorant Infant";
   font-weight: 700;
 }
 
