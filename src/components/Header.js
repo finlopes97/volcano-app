@@ -1,26 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import '../style/Header.css';
 
 function Header() {
-  const [isAuth, setAuth] = useState(!!localStorage.getItem("authToken"));
-
-  useEffect(() => {
-    const handleAuthChange = () => {
-      setAuth(!!localStorage.getItem("authToken"));
-    };
-
-    window.addEventListener('storage', handleAuthChange);
-
-    return () => {
-      window.removeEventListener('storage', handleAuthChange);
-    };
-  }, []);
+  const { isAuthenticated, logout } = useAuth;
 
   const handleLogout = () => {
     console.log("Logging you out Shepard...");
-    localStorage.removeItem("authToken");
-    setAuth(false);
+    logout();
   };
 
   return (
@@ -37,7 +25,7 @@ function Header() {
               Volcano List
             </Link>
           </li>
-          {!isAuth ? (
+          {!isAuthenticated ? (
             <>
               <li>
                 <Link to="/signup" className="nav-link">

@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 import "../style/Login.css";
 
 function Login() {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(true);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -50,7 +52,7 @@ function Login() {
       .then((data) => {
         if (data.token) {
           console.log(`User successfully logged in with token: ${data.token}`);
-          localStorage.setItem("authToken", data.token);
+          login(data.token);
           navigate("/");
         } else {
           setIncorrectDetails("That account does not exist. Try again.")
