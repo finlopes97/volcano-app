@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Baskervville:700|Montserrat:400");
+@import url("https://fonts.googleapis.com/css?family=Cormorant%20Infant:700|Montserrat:400");
 .container {
   display: flex;
 }
@@ -13,6 +13,10 @@
 
 .login-heading {
   margin-bottom: 24px;
+}
+
+.login-error {
+  color: #d03e40;
 }
 
 .login-form {
@@ -71,7 +75,7 @@ input[type=submit]#login-submit:hover {
   background-color: #e55254;
 }
 
-.show-password {
+.hide-password {
   margin-left: 8px;
   background: none;
   border: none;

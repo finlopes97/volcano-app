@@ -8,6 +8,17 @@ function Volcano() {
   const { id } = useParams();
   const [volcano, setVolcano] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isAuth, setAuth] = useState(false);
+
+  useState(() => {
+    if (localStorage.getItem("authToken")) {
+      console.log("User is logged in.");
+      setAuth(true);
+    } else {
+      console.log("User not logged in.");
+    }
+  });
+
   useEffect(() => {
     const fetchVolcanoData = async () => {
       const response = await fetch(`http://4.237.58.241:3000/volcano/${id}`);
@@ -23,6 +34,21 @@ function Volcano() {
     return <div>Loading...</div>;
   }
 
+  const populationData = () => {
+    if (isAuth) {
+      return (
+      <ul>
+        <li>Population within 5km: {volcano.population_5km}</li>
+        <li>Population within 10km: {volcano.population_10km}</li>
+        <li>Population within 30km: {volcano.population_30km}</li>
+        <li>Population within 100km: {volcano.population_100km}</li>
+      </ul>
+      );
+    } else {
+      <p>Only users with a valid account may view population data.</p>;
+    }
+  };
+
   return (
     <div className="container col">
       <div className="container row volcano-content">
@@ -37,7 +63,7 @@ function Volcano() {
         </div>
         <div className="container col">
           <h2>Population Data</h2>
-          <p>Not available without an account.</p>
+          <div>{populationData}</div>
         </div>
       </div>
       <div className="volcano-map">

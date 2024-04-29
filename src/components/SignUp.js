@@ -31,52 +31,53 @@ function SignUp() {
   };
 
   const handleSubmit = (e) => {
-	e.preventDefault();
+    e.preventDefault();
 
-	const userData = {
-		email: document.getElementById("signup-email").value,
-		password: document.getElementById("signup-password").value
-	};
+    const userData = {
+      email: document.getElementById("signup-email").value,
+      password: document.getElementById("signup-password").value,
+    };
 
-	const userDataJson = JSON.stringify(userData);
+    const userDataJson = JSON.stringify(userData);
 
-	fetch("http://4.237.58.241:3000/user/register", {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			'Accept': 'application/json'
-		},
-		body: userDataJson
-	})
-	.then(response => response.json())
-	.then(data => {
-		if(data.message === "User created") {
-			// Automatically log this bitch in
-			return fetch("http://4.237.58.241:3000/user/login", {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-					'Accept': 'application/json'
-				},
-				body: userDataJson
-			});
-		} else {
-			throw new Error(`Failed to create user: ${data.message}`);
-		}
-	})
-	.then(response => response.json())
-	.then(data => {
-		if(data.token) {
-			localStorage.setItem("authToken", data.token);
-			navigate('/');
-		} else {
-			throw new Error("Failed to login after registration. Try again.")
-		}
-	})
-	.catch(error => {
-		console.error(`Error: ${error}`);
-		setError(`Error: ${error.message}`);
-	});
+    fetch("http://4.237.58.241:3000/user/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: userDataJson,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message === "User created") {
+          // Automatically log this bitch in
+          return fetch("http://4.237.58.241:3000/user/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: userDataJson,
+          });
+        } else {
+          throw new Error(`Failed to create user: ${data.message}`);
+        }
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.token) {
+          console.log(`User successfully logged in with token: ${data.token}`);
+          localStorage.setItem("authToken", data.token);
+          navigate("/");
+        } else {
+          throw new Error("Failed to login after registration. Try again.");
+        }
+      })
+      .catch((error) => {
+        console.error(`Error: ${error}`);
+        setError(`Error: ${error.message}`);
+      });
   };
 
   return (
@@ -101,11 +102,14 @@ function SignUp() {
               name="password"
               id="signup-password"
               autoComplete="off"
+              minLength={5}
             />
             <button
               type="button"
+              name="hide-password"
+              id="hide-password"
               onClick={toggleShowPassword}
-              className="show-password"
+              className="hide-password"
             >
               {showPassword ? (
                 <FontAwesomeIcon icon={faEye} />
@@ -120,7 +124,11 @@ function SignUp() {
           <button className="signup-button" type="button" onClick={handleLogin}>
             Have an account? Sign in
           </button>
-          <button className="signup-button" type="button" onClick={handleGoBack}>
+          <button
+            className="signup-button"
+            type="button"
+            onClick={handleGoBack}
+          >
             Go back
           </button>
         </div>
