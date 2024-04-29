@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import '../style/Header.css';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import "../style/Header.css";
 
 function Header() {
-  const { isAuthenticated, logout } = useAuth;
-
-  const handleLogout = () => {
-    console.log("Logging you out Shepard...");
-    logout();
-  };
+  const { isAuthenticated } = useAuth();
 
   return (
     <header className="App-header">
@@ -39,9 +34,13 @@ function Header() {
               </li>
             </>
           ) : (
-            <li>
-              <button className="logout-button" onClick={handleLogout}>Logout</button>
-            </li>
+            <>
+              <li>
+                <Link to="/logout" className="nav-link">
+                  Logout
+                </Link>
+              </li>
+            </>
           )}
         </ul>
       </nav>

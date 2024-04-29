@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Map, Marker } from "pigeon-maps";
+import { useAuth } from "../contexts/AuthContext";
 
 import "../style/Volcano.css";
 
@@ -8,17 +9,13 @@ function Volcano() {
   const { id } = useParams();
   const [volcano, setVolcano] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isAuth, setAuth] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
-    const authToken = localStorage.getItem("authToken");
-    setAuth(!!authToken);
-    console.log(authToken ? "User logged in." : "User not logged in.");
-
-    const headers = authToken
+    const headers = isAuthenticated
       ? {
           Accept: "application/json",
-          Authorization: `Bearer ${authToken}`,
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         }
       : {
           Accept: "application/json",
@@ -55,7 +52,7 @@ function Volcano() {
         <div className="container col">
           <h2>Population Data</h2>
           <div>
-            {isAuth ? (
+            {isAuthenticated ? (
               <div>
                 <p>{volcano.population_5km}</p>
                 <p>{volcano.population_10km}</p>
