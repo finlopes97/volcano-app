@@ -10,44 +10,35 @@ function Volcano() {
   const [isLoading, setIsLoading] = useState(true);
   const [isAuth, setAuth] = useState(false);
 
-  useState(() => {
-    if (localStorage.getItem("authToken")) {
-      console.log("User is logged in.");
-      setAuth(true);
-    } else {
-      console.log("User not logged in.");
-    }
-  });
-
   useEffect(() => {
-    const fetchVolcanoData = async () => {
-      const response = await fetch(`http://4.237.58.241:3000/volcano/${id}`);
-      const data = await response.json();
-      setVolcano(data);
-      setIsLoading(false);
-    };
+    const authToken = localStorage.getItem("authToken");
+    setAuth(!!authToken);
+    console.log(authToken ? "User logged in." : "User not logged in.");
 
-    fetchVolcanoData();
+    const headers = authToken
+      ? {
+          Accept: "application/json",
+          Authorization: `Bearer ${authToken}`,
+        }
+      : {
+          Accept: "application/json",
+        };
+        
+    fetch(`http://4.237.58.241:3000/volcano/${id}`, { headers })
+      .then((response) => response.json())
+      .then((data) => {
+        setVolcano(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setIsLoading(false);
+      });
   }, [id]);
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
-  const populationData = () => {
-    if (isAuth) {
-      return (
-      <ul>
-        <li>Population within 5km: {volcano.population_5km}</li>
-        <li>Population within 10km: {volcano.population_10km}</li>
-        <li>Population within 30km: {volcano.population_30km}</li>
-        <li>Population within 100km: {volcano.population_100km}</li>
-      </ul>
-      );
-    } else {
-      <p>Only users with a valid account may view population data.</p>;
-    }
-  };
 
   return (
     <div className="container col">
@@ -63,7 +54,18 @@ function Volcano() {
         </div>
         <div className="container col">
           <h2>Population Data</h2>
-          <div>{populationData}</div>
+          <div>
+            {isAuth ? (
+              <div>
+                <p>{volcano.population_5km}</p>
+                <p>{volcano.population_10km}</p>
+                <p>{volcano.population_30km}</p>
+                <p>{volcano.population_100km}</p>
+              </div>
+            ) : (
+              <p>Only users with a valid account may view population data.</p>
+            )}
+          </div>
         </div>
       </div>
       <div className="volcano-map">
