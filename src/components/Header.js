@@ -1,18 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "../style/Header.css";
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
   const { isAuthenticated } = useAuth();
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <header className="App-header">
       <nav>
-        <ul className="nav-list">
+        <button className="nav-toggle" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={faBars} />
+        </button>
+        <ul className={`nav-list ${isOpen ? "open" : ""}`}>
           <li id="first-link">
             <Link to="/" className="nav-link">
-              <h1>Home</h1>
+              Home
             </Link>
           </li>
           <li>

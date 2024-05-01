@@ -1,0 +1,90 @@
+@import "Variables";
+@import "Containers";
+
+.auth-heading {
+  margin-bottom: 24px;
+}
+
+.auth-form {
+  width: 90%;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  margin: auto;
+
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    border: none;
+    background-color: map-get(map-get($themes, light), secondary);
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px;
+    font-size: 100%;
+    width: calc(100% - 16px);
+  }
+
+  input[type="submit"],
+  .auth-button {
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+    font-weight: 500;
+    padding: 12px 24px;
+    margin: 8px;
+    width: calc(100% - 16px);
+    border: none;
+    border-radius: 1rem;
+    background-color: map-get(map-get($themes, light), secondary);
+    transition: background-color 200ms ease-in-out, transform 200ms ease-in-out;
+
+    &:hover,
+    &:focus-visible {
+      background-color: map-get(map-get($themes, light), accent);
+      transform: translateY(-0.5rem);
+    }
+  }
+}
+
+.error-message {
+  color: inherit;
+  margin-bottom: 12px;
+}
+
+.error-link {
+  color: map-get(map-get($themes, light), accent);
+  text-decoration: underline;
+}
+
+.hide-password {
+  cursor: pointer;
+  margin-left: 8px;
+  background: none;
+  border: none;
+  width: 32px;
+  height: auto;
+  color: map-get(map-get($themes, light), text);
+  transition: transform 200ms ease-in-out;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-0.5rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .auth-form {
+    padding: 64px;
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"] {
+      width: 100%;
+    }
+  }
+
+  .auth-button {
+    padding: 1rem 1.5rem;
+  }
+}

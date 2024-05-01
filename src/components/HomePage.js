@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Map, Marker } from "pigeon-maps";
+import { useAuth } from "../contexts/AuthContext";
 
 import "../style/HomePage.css";
 
 function getRandomNumber() {
-  return Math.floor(Math.random() * 251);
+  return Math.floor(Math.random() * 999 + 1);
 }
 
 function HomePage() {
+  const { isAuthenticated } = useAuth();
   const [volcanoes, setVolcanoes] = useState([]);
   const [volcanoIds, setVolcanoIds] = useState([]);
   const [email, setEmail] = useState("");
-  const navigate = useNavigate();
-
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,35 +68,47 @@ function HomePage() {
               Jason Cosper, <a href="https://hipsum.co/">Hipster Ipsum</a>
             </cite>
           </blockquote>
-          <h3 id="cta-heading">Stay Connected</h3>
-          <form id="cta-form" className="container col" onSubmit={handleSubmit}>
-            <label className="container col">
-              Your Email:
-              <div className="container row">
-                <input
-                  id="cta-email"
-                  type="email"
-                  name="userEmail"
-                  value={email}
-                  autoComplete="email"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <input id="cta-submit" type="submit" value="Sign Up" />
-              </div>
-            </label>
-          </form>
+          {!isAuthenticated ? (
+            <>
+              <form className="cta" onSubmit={handleSubmit}>
+                <h2>Stay Connected</h2>
+                <label className="">
+                  Your Email:
+                  <div className="cta-form">
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      value={email}
+                      autoComplete="email"
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <input
+                      id="submit"
+                      type="submit"
+                      name="submit"
+                      value="Sign Up"
+                    />
+                  </div>
+                </label>
+              </form>
+            </>
+          ) : (
+            <hr />
+          )}
         </div>
       </div>
       <div className="container row quote parallax"></div>
       <div className="container col content">
         <h3>Hot Volcanoes In Your Area</h3>
-        <div className="container row">
+        <div className="container cards">
           {volcanoes.map((volcano, index) => (
-            <div key={index}>
-              <div className="card">
-                <h4 className="card-title">{volcano.name}</h4>
+            <div key={index} className="card">
+              <h4 className="card-title">{volcano.name}</h4>
+              <div className="volcano-card-map">
                 <Map
-                  height={200}
+                  twoFingerDrag={true}
+                  twoFingerDragWarning="Use two fingers to move the map"
                   defaultCenter={[
                     volcano.latitude ? parseFloat(volcano.latitude) : 0,
                     volcano.longitude ? parseFloat(volcano.longitude) : 0,
@@ -111,17 +124,17 @@ function HomePage() {
                     color="red"
                   />
                 </Map>
-                <p>Country: {volcano.country}</p>
-                <p>Region: {volcano.region}</p>
-                <p>Summit: {volcano.summit}</p>
-                <p>Last Eruption: {volcano.last_eruption}</p>
-                <Link
-                  to={`/volcano/${volcanoIds[index]}`}
-                  className="volcano-link"
-                >
-                  Learn More
-                </Link>
               </div>
+              <p>Country: {volcano.country}</p>
+              <p>Region: {volcano.region}</p>
+              <p>Summit: {volcano.summit}</p>
+              <p>Last Eruption: {volcano.last_eruption}</p>
+              <Link
+                to={`/volcano/${volcanoIds[index]}`}
+                className="volcano-link"
+              >
+                Learn More
+              </Link>
             </div>
           ))}
         </div>

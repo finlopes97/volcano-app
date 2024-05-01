@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
-import "../style/SignUp.css";
+import "../style/Auth.css";
 
 function SignUp() {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const email = queryParams.get("email");
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(true);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -34,8 +36,8 @@ function SignUp() {
     e.preventDefault();
 
     const userData = {
-      email: document.getElementById("signup-email").value,
-      password: document.getElementById("signup-password").value,
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value,
     };
 
     const userDataJson = JSON.stringify(userData);
@@ -59,37 +61,56 @@ function SignUp() {
               Accept: "application/json",
             },
             body: userDataJson,
-          });
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.token) {
+                login(data.token);
+                navigate("/");
+              } else {
+                setError(data);
+                console.error(error.message);
+              }
+            });
         } else {
-          throw new Error(`Failed to create user: ${data.message}`);
-        }
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.token) {
-          console.log(`User successfully logged in with token: ${data.token}`);
-          localStorage.setItem("authToken", data.token);
-          navigate("/");
-        } else {
-          throw new Error("Failed to login after registration. Try again.");
+          setError(data);
+          throw new Error(error);
         }
       })
       .catch((error) => {
-        console.error(`Error: ${error}`);
-        setError(`Error: ${error.message}`);
+        console.error(error);
       });
   };
 
   return (
-    <div className="container col signup-form">
+    <div className="auth-form">
       <form className="container col" onSubmit={handleSubmit}>
-        <h2 className="signup-heading">Create a free account.</h2>
+        <h2 className="auth-heading">Create a free account.</h2>
+        {error.message === "User already exists" && (
+          <div className="container row error-message">
+            <p>
+              It looks like you already have an account with us, try{" "}
+              <Link to="/login" className="error-link">
+                signing in?
+              </Link>
+            </p>
+          </div>
+        )}
+        {error.message ===
+          "Request body incomplete, both email and password are required" && (
+          <div className="container row error-message">
+            <p>
+              It looks like you forgot to enter your email or password, try
+              again.
+            </p>
+          </div>
+        )}
         <label className="container col">
           Email:
           <input
             type="email"
             name="email"
-            id="signup-email"
+            id="email"
             defaultValue={email}
             autoComplete="email"
           />
@@ -100,7 +121,7 @@ function SignUp() {
             <input
               type={showPassword ? "text" : "password"}
               name="password"
-              id="signup-password"
+              id="password"
               autoComplete="off"
               minLength={5}
             />
@@ -119,16 +140,12 @@ function SignUp() {
             </button>
           </div>
         </label>
-        <input id="signup-submit" type="submit" value="Create Account" />
+        <input id="submit" type="submit" value="Create Account" />
         <div className="container row">
-          <button className="signup-button" type="button" onClick={handleLogin}>
+          <button className="auth-button" type="button" onClick={handleLogin}>
             Have an account? Sign in
           </button>
-          <button
-            className="signup-button"
-            type="button"
-            onClick={handleGoBack}
-          >
+          <button className="auth-button" type="button" onClick={handleGoBack}>
             Go back
           </button>
         </div>

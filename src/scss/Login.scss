@@ -1,85 +1,87 @@
-@import "Variables";
-@import "Containers";
+// LEGACY
 
-.login-heading {
-	margin-bottom: 24px;
-}
+// @import "Variables";
+// @import "Containers";
 
-.login-error {
-  color: map-get(map-get($themes, light), primary);
-}
+// .login-heading {
+// 	margin-bottom: 24px;
+// }
 
-.login-form {
-  width: auto;
-  padding: 128px;
-  justify-content: center;
-  align-items: center;
-}
+// .login-error {
+//   color: map-get(map-get($themes, light), primary);
+// }
 
-input[type="email"]#login-email {
-  border: none;
-  background-color: map-get(map-get($themes, light), secondary);
-  border-radius: 8px;
+// .login-form {
+//   width: auto;
+//   padding: 128px;
+//   justify-content: center;
+//   align-items: center;
+// }
 
-  padding: 8px;
-  margin: 8px;
+// input[type="email"]#login-email {
+//   border: none;
+//   background-color: map-get(map-get($themes, light), secondary);
+//   border-radius: 8px;
 
-  font-size: 100%;
-  color: map-get(map-get($themes, light), text);
+//   padding: 8px;
+//   margin: 8px;
 
-  width: 500px;
-}
-input[type="password"]#login-password,
-input[type="text"]#login-password {
-  border: none;
-  background-color: map-get(map-get($themes, light), secondary);
-  border-radius: 8px;
+//   font-size: 100%;
+//   color: map-get(map-get($themes, light), text);
 
-  padding: 8px;
-  margin: 8px;
+//   width: 500px;
+// }
+// input[type="password"]#login-password,
+// input[type="text"]#login-password {
+//   border: none;
+//   background-color: map-get(map-get($themes, light), secondary);
+//   border-radius: 8px;
 
-  font-size: 100%;
+//   padding: 8px;
+//   margin: 8px;
 
-  width: 500px;
-}
+//   font-size: 100%;
 
-input[type="submit"]#login-submit {
-  border: none;
-  border-radius: 8px;
+//   width: 500px;
+// }
 
-  padding: 8px;
-  margin: 8px;
+// input[type="submit"]#login-submit {
+//   border: none;
+//   border-radius: 8px;
 
-  font-size: 100%;
-  background-color: map-get(map-get($themes, light), secondary);
-}
+//   padding: 8px;
+//   margin: 8px;
 
-input[type="submit"]#login-submit:hover {
-  background-color: map-get(map-get($themes, light), accent);
-}
+//   font-size: 100%;
+//   background-color: map-get(map-get($themes, light), secondary);
+// }
 
-.login-button {
-  border: none;
-  border-radius: 8px;
+// input[type="submit"]#login-submit:hover {
+//   background-color: map-get(map-get($themes, light), accent);
+// }
 
-  padding: 8px;
-  margin: 8px;
+// .login-button {
+//   border: none;
+//   border-radius: 8px;
 
-  font-size: 100%;
-  background-color: map-get(map-get($themes, light), secondary);
+//   padding: 8px;
+//   margin: 8px;
 
-  flex: 1;
-}
+//   font-size: 100%;
+//   background-color: map-get(map-get($themes, light), secondary);
 
-.login-button:hover {
-  background-color: map-get(map-get($themes, light), accent);
-}
+//   flex: 1;
+// }
 
-.hide-password {
-  margin-left: 8px;
-	background: none;
-	border: none;
-	width: 32px;
-	height: auto;
-	color: map-get(map-get($themes, light), text);
-}
+// .login-button:hover {
+//   background-color: map-get(map-get($themes, light), accent);
+// }
+
+// .hide-password {
+//   margin-left: 8px;
+// 	background: none;
+// 	border: none;
+// 	width: 32px;
+// 	height: auto;
+// 	color: map-get(map-get($themes, light), text);
+// }

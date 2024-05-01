@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Baskervville:700|Montserrat:400");
+@import url("https://fonts.googleapis.com/css?family=Cormorant%20Infant:700|Montserrat:400");
 .container {
   display: flex;
 }
@@ -12,36 +12,91 @@
 }
 
 nav {
-  padding: 8px 32px;
+  padding: 8px 16px;
   border-bottom: solid;
   border-color: #e55254;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-toggle {
+  display: block;
+  cursor: pointer;
+  background: none;
+  border: none;
 }
 
 ul {
   display: flex;
-  gap: 32px;
+  flex-direction: column;
   align-items: center;
+  width: 100%;
+  padding: 0;
+  transition: transform 0.3s ease-out;
+  transform: scaleY(0);
+  transform-origin: top;
+  height: 0;
+  overflow: hidden;
+}
+
+ul.open {
+  transform: scaleY(1);
+  height: auto;
 }
 
 li {
   list-style: none;
-  text-decoration: underline solid transparent;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
-  transition: 100ms ease-in-out;
-}
-
-li:hover {
-  text-decoration-color: #e55254;
+  width: 100%;
+  text-align: center;
+  padding: 8px 0;
 }
 
 li#first-link {
-  margin-right: auto;
+  font-family: "Cormorant Infant";
+  font-weight: bold;
+  font-size: 1.12rem;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  text-decoration: underline solid transparent;
+  text-decoration-thickness: 2px;
+  transition: 100ms ease-in-out;
+}
+a:hover, a:focus-visible {
+  text-decoration-color: #e55254;
+}
+
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none;
+  }
+  ul {
+    flex-direction: row;
+    justify-content: space-around;
+    transform: none;
+    height: auto;
+  }
+  li {
+    width: auto;
+    text-align: left;
+    padding: 0 16px;
+  }
+  li#first-link {
+    margin-right: auto;
+  }
+}
+@media (max-width: 767px) {
+  .nav-toggle {
+    display: block;
+  }
+  ul {
+    display: none;
+  }
+  ul.open {
+    display: flex;
+  }
 }
 
 /*# sourceMappingURL=Header.css.map */

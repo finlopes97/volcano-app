@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css?family=Cormorant%20Infant:700|Montserrat:400");
+.container {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.auth-heading {
+  margin-bottom: 24px;
+}
+
+.auth-form {
+  width: 90%;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  margin: auto;
+}
+.auth-form input[type=email],
+.auth-form input[type=password],
+.auth-form input[type=text] {
+  border: none;
+  background-color: #ea9093;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 8px;
+  font-size: 100%;
+  width: calc(100% - 16px);
+}
+.auth-form input[type=submit],
+.auth-form .auth-button {
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  font-weight: 500;
+  padding: 12px 24px;
+  margin: 8px;
+  width: calc(100% - 16px);
+  border: none;
+  border-radius: 1rem;
+  background-color: #ea9093;
+  transition: background-color 200ms ease-in-out, transform 200ms ease-in-out;
+}
+.auth-form input[type=submit]:hover, .auth-form input[type=submit]:focus-visible,
+.auth-form .auth-button:hover,
+.auth-form .auth-button:focus-visible {
+  background-color: #e55254;
+  transform: translateY(-0.5rem);
+}
+
+.error-message {
+  color: inherit;
+  margin-bottom: 12px;
+}
+
+.error-link {
+  color: #e55254;
+  text-decoration: underline;
+}
+
+.hide-password {
+  cursor: pointer;
+  margin-left: 8px;
+  background: none;
+  border: none;
+  width: 32px;
+  height: auto;
+  color: #1f0a0b;
+  transition: transform 200ms ease-in-out;
+}
+.hide-password:hover, .hide-password:focus-visible {
+  transform: translateY(-0.5rem);
+}
+
+@media (min-width: 768px) {
+  .auth-form {
+    padding: 64px;
+  }
+  .auth-form input[type=email],
+  .auth-form input[type=password],
+  .auth-form input[type=text] {
+    width: 100%;
+  }
+  .auth-button {
+    padding: 1rem 1.5rem;
+  }
+}
+
+/*# sourceMappingURL=Auth.css.map */

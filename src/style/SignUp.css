@@ -22,6 +22,16 @@
   align-items: center;
 }
 
+.error-message {
+  color: inherit;
+  margin-bottom: 12px;
+}
+
+.error-link {
+  color: #e55254;
+  text-decoration: underline;
+}
+
 input[type=email]#signup-email {
   border: none;
   background-color: #ea9093;

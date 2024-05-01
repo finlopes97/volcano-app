@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
+import "../style/Auth.css";
+
 function Logout() {
   const { logout } = useAuth();
   const navigate = useNavigate();
@@ -18,10 +20,22 @@ function Logout() {
   };
 
   return (
-    <div>
-      <h1>Are you ready to log out? We'll miss you</h1>
-      <button onClick={handleLogout}>I'm ready</button>
-      <button onClick={handleGoBack}>I'm not ready</button>
+    <div className="auth-form">
+      <h1 className="auth-heading">Ready to go already? We'll miss you</h1>
+      <div className="container row">
+        <button
+          className="auth-button"
+          onClick={handleLogout}
+        >
+          I'm ready
+        </button>
+        <button
+          className="auth-button"
+          onClick={handleGoBack}
+        >
+          I'm not ready
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,17 +1,57 @@
+
 @import "Variables";
 @import "Containers";
 
 .volcano-content {
-    background-color: map-get(map-get($themes, dark), background);
-    color: map-get(map-get($themes, dark), text);
-    padding: 16px;
-    justify-content: space-around;
+  padding: 1rem;
+  margin: auto;
+  width: 100%; // Use 100% width for mobile and scale up from there
+  align-items: center;
+  flex-direction: column;
 }
 
 .volcano-info {
-    align-items: left;
+  flex-direction: column; // Stack vertically on mobile
+  align-items: center;
 }
 
-.volcano-content p {
-    margin: 4px 0;
+.volcano-info-card {
+  margin: 1rem; // Add margin for touch targets
+  width: 90%; // Make use of the screen width
+}
+
+.volcano-map-parent {
+  display: flex;
+  justify-content: center;
+  width: 100%; // Full width for mobile
+  height: 300px; // Smaller height for mobile
+}
+
+.volcano-map {
+  border: solid 8px map-get(map-get($themes, light), accent);
+  width: 100%; // Ensure the map fills the container
+  height: 100%; // Full container height
+}
+
+// Media queries for larger screens
+@media (min-width: 768px) { // Tablets and desktops
+  .volcano-content {
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 80%;
+  }
+
+  .volcano-info {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .volcano-info-card {
+    width: 45%; // Adjust width for side-by-side layout
+  }
+
+  .volcano-map-parent {
+    width: 700px;
+    height: 500px;
+  }
 }

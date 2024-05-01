@@ -12,16 +12,16 @@
 }
 
 .jumbotron {
+  padding: 16px;
   align-items: center;
-  padding: 64px 128px;
 }
 .jumbotron h1 {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-decoration-color: #e55254;
+  font-size: 1.5rem;
 }
-.jumbotron blockquote {
+.jumbotron blockquote,
+.jumbotron cite {
   padding: 8px;
+  font-size: 0.9rem;
 }
 .jumbotron cite {
   display: block;
@@ -31,44 +31,55 @@
 .jumbotron a {
   font-style: italic;
   color: #e55254;
-  text-decoration: underline;
 }
 
-h3#cta-heading {
-  margin-top: 24px;
+.cta {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
 }
-
-form#cta-form {
-  margin: 12px;
+.cta h2 {
+  align-self: flex-start;
+  text-align: left;
 }
-
-input[type=email]#cta-email {
+.cta label {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.cta .cta-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cta input[type=email],
+.cta input[type=submit] {
+  padding: 8px;
+  margin: 8px 8px;
+  width: calc(100% - 20px);
+}
+.cta input[type=email] {
   border: none;
   background-color: #ea9093;
-  border-radius: 8px;
-  padding: 8px;
-  margin: 8px;
-  font-size: 100%;
-  width: 500px;
+  border-radius: 1rem;
 }
-
-input[type=submit]#cta-submit {
-  border: none;
-  background-color: #ea9093;
-  border-radius: 8px;
-  padding: 8px;
-  margin: 8px;
-  font-size: 100%;
-}
-
-input[type=submit]#cta-submit:hover {
+.cta input[type=submit] {
   cursor: pointer;
+  border: none;
+  border-radius: 1rem;
+  background-color: #ea9093;
+  transition: background-color 200ms ease-in-out, transform 200ms ease-in-out;
+}
+.cta input[type=submit]:hover, .cta input[type=submit]:focus-visible {
   background-color: #e55254;
+  transform: translateY(-0.5rem);
 }
 
 .parallax {
   background-image: url("/src/images/volcano-alt.jpg");
-  min-height: 300px;
+  min-height: 200px;
   margin: 0;
   background-attachment: fixed;
   background-position: center;
@@ -77,32 +88,30 @@ input[type=submit]#cta-submit:hover {
 }
 
 .content {
-  margin: 32px 64px;
+  padding: 16px;
 }
-
 .content h3 {
-  font-size: 36px;
+  font-size: 1.25rem;
   font-weight: extra-bold;
-  color: #1f0a0b;
   text-align: center;
   margin-bottom: 32px;
 }
 
-.content .row {
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
+.cards {
+  flex-direction: column;
+  align-items: center;
 }
 
 .card {
+  margin: 10px;
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 100%;
+  min-width: 300px;
   border: 2px solid #e55254;
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 1rem;
+  padding: 8px;
 }
-
 .card h4,
 .card p {
   white-space: nowrap;
@@ -111,9 +120,63 @@ input[type=submit]#cta-submit:hover {
   color: #1f0a0b;
   text-align: left;
 }
+.card h4 {
+  font-size: 1.25rem;
+  font-weight: extra-bold;
+  margin-bottom: 8px;
+}
+
+.volcano-card-map {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+}
 
 .volcano-link {
   color: #e55254;
+}
+
+@media (min-width: 768px) {
+  .jumbotron {
+    padding: 64px 128px;
+    text-align: left;
+  }
+  .jumbotron h1 {
+    font-size: 2.5rem;
+  }
+  .jumbotron blockquote,
+  .jumbotron cite {
+    font-size: 1rem;
+  }
+  .cta .cta-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  .cta input[type=email],
+  .cta input[type=submit] {
+    width: auto;
+    flex: 1;
+  }
+  .parallax {
+    min-height: 300px;
+  }
+  .content {
+    padding: 32px 64px;
+  }
+  .content h3 {
+    font-size: 2rem;
+  }
+  .cards {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 300px;
+  }
 }
 
 /*# sourceMappingURL=HomePage.css.map */

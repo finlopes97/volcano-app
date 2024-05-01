@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
-import "../style/Login.css";
+import "../style/Auth.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -12,7 +12,6 @@ function Login() {
   const [showPassword, setShowPassword] = useState(true);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [incorrectDetails, setIncorrectDetails] = useState("");
 
   const handleGoBack = () => {
     navigate(`/`);
@@ -34,8 +33,8 @@ function Login() {
     e.preventDefault();
 
     const userData = {
-      email: document.getElementById("login-email").value,
-      password: document.getElementById("login-password").value,
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value,
     };
 
     const userDataJson = JSON.stringify(userData);
@@ -51,33 +50,43 @@ function Login() {
       .then((response) => response.json())
       .then((data) => {
         if (data.token) {
-          console.log(`User successfully logged in with token: ${data.token}`);
           login(data.token);
           navigate("/");
         } else {
-          setIncorrectDetails("That account does not exist. Try again.")
-          throw new Error("Failed to login. Try again.");
+          setError(data);
+          throw new Error(error.message);
         }
       })
       .catch((error) => {
         console.error(`Error: ${error}`);
-        setError(`Error: ${error.message}`);
       });
   };
 
   return (
-    <div className="container col login-form">
-      <form className="container col" onSubmit={handleSubmit}>
-        <h2 className="login-heading" id="login-heading">Sign into your account.</h2>
-        <h3 className="login-error">{incorrectDetails}</h3>
+    <div className="auth-form">
+      <form onSubmit={handleSubmit}>
+        <h2 className="auth-heading" id="auth-heading">
+          Sign into your account.
+        </h2>
+        {error.message === "Incorrect email or password" && (
+          <div className="container row error-message">
+            <p>
+              It looks like you entered the wrong password, please try again.
+            </p>
+          </div>
+        )}
+        {error.message ===
+          "Request body incomplete, both email and password are required" && (
+          <div className="container row error-message">
+            <p>
+              Please enter both your email and password to sign in to your
+              account.
+            </p>
+          </div>
+        )}
         <label className="container col">
           Email:
-          <input
-            type="email"
-            name="email"
-            id="login-email"
-            autoComplete="email"
-          />
+          <input type="email" name="email" id="email" autoComplete="email" />
         </label>
         <label className="container col">
           Password:
@@ -85,7 +94,7 @@ function Login() {
             <input
               type={showPassword ? "text" : "password"}
               name="password"
-              id="login-password"
+              id="password"
               autoComplete="off"
             />
             <button
@@ -103,12 +112,12 @@ function Login() {
             </button>
           </div>
         </label>
-        <input id="login-submit" type="submit" value="Sign In" />
+        <input id="auth-submit" type="submit" value="Sign In" />
         <div className="container row">
-          <button className="login-button" type="button" onClick={handleSignUp}>
+          <button className="auth-button" type="button" onClick={handleSignUp}>
             No account? Create one
           </button>
-          <button className="login-button" type="button" onClick={handleGoBack}>
+          <button className="auth-button" type="button" onClick={handleGoBack}>
             Go back
           </button>
         </div>

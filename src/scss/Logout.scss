@@ -1,0 +1,38 @@
+// LEGACY
+
+// @import "Variables";
+// @import "Containers";
+
+// .logout-page {
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+// }
+
+// .logout-heading {
+//   margin-bottom: 24px;
+// }
+
+// .logout-dialog {
+//   width: 50%;
+//   justify-content: space-around;
+//   padding: 1rem;
+// }
+
+// .logout-button {
+//   cursor: pointer;
+//   font: inherit;
+//   color: inherit;
+//   font-weight: 500;
+//   padding: 1rem 1.5rem;
+//   border: none;
+//   border-radius: 1rem;
+//   background-color: map-get(map-get($themes, light), secondary);
+//   transition: background-color 200ms ease-in-out, transform 200ms ease-in-out;
+
+//   &:hover,
+//   &:focus-visible {
+//     background-color: map-get(map-get($themes, light), accent);
+//     transform: translateY(-0.5rem);
+//   }
+// }
