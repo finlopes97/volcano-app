@@ -75,12 +75,12 @@ a {
 
 @media (max-width: 767px) {
   .nav-toggle {
-    display: block; // Show the menu icon on smaller screens
+    display: block;
   }
   ul {
-    display: none; // Start with menu not displayed
+    display: none;
   }
   ul.open {
-    display: flex; // Display when open
+    display: flex;
   }
 }

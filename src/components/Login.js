@@ -51,7 +51,7 @@ function Login() {
       .then((data) => {
         if (data.token) {
           login(data.token);
-          navigate("/");
+          navigate(-1);
         } else {
           setError(data);
           throw new Error(error.message);

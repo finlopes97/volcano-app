@@ -4,7 +4,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 
 import Header from "./components/Header";
 import HomePage from "./components/HomePage";
-// import VolcanoList from "./components/VolcanoList";
+import Volcanoes from "./components/Volcanoes";
 import Volcano from "./components/Volcano";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
@@ -23,6 +23,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/volcanoes" element={<Volcanoes />} />
             <Route path="/volcano/:id" element={<Volcano />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />

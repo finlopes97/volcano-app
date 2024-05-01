@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css?family=Cormorant%20Infant:700|Montserrat:400");
+.container {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.volcano-filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.volcano-filters select {
+  cursor: pointer;
+  flex: 1;
+  border: none;
+  background-color: #ea9093;
+  border-radius: 1rem;
+  padding: 8px;
+  margin: 8px 0;
+  width: calc(100% - 16px);
+  font-weight: 500;
+  font-size: 100%;
+}
+.volcano-filters select option {
+  font-weight: 500;
+  font-size: 100%;
+  width: calc(100% - 16px);
+  background-color: #ea9093;
+}
+@media (min-width: 768px) {
+  .volcano-filters {
+    flex-direction: row;
+  }
+  .volcano-filters select {
+    padding: 16px;
+    margin: 8px;
+    width: calc(50% - 16px);
+  }
+}
+
+.volcano-message {
+  padding: 8px;
+  color: #d03e40;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.ag-theme-material {
+  width: calc(100% - 16px);
+  height: auto;
+}
+
+/*# sourceMappingURL=Volcanoes.css.map */

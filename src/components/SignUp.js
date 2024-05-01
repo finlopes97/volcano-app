@@ -66,7 +66,7 @@ function SignUp() {
             .then((data) => {
               if (data.token) {
                 login(data.token);
-                navigate("/");
+                navigate(-1);
               } else {
                 setError(data);
                 console.error(error.message);
