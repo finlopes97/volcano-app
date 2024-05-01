@@ -9,7 +9,7 @@ import Volcano from "./components/Volcano";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
-// import NotFound from "./components/NotFound";
+import NotFound from "./components/NotFound";
 import Footer from "./components/Footer";
 
 import "./style/Main.css";
@@ -28,6 +28,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </div>
