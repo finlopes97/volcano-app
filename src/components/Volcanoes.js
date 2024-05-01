@@ -140,6 +140,7 @@ function Volcanoes() {
         columnDefs={columnDefs}
         onRowClicked={handleRowClicked}
         domLayout="autoHeight"
+        pagination={true}
         animateRows={true}
       />
     </div>

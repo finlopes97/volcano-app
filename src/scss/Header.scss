@@ -49,11 +49,15 @@ a {
   transition: 100ms ease-in-out;
   &:hover,
   &:focus-visible {
+    outline: none;
     text-decoration-color: map-get(map-get($themes, light), accent);
   }
 }
 
 @media (min-width: 768px) {
+  nav {
+    padding: 1rem;
+  }
   .nav-toggle {
     display: none;
   }
@@ -66,21 +70,11 @@ a {
   li {
     width: auto;
     text-align: left;
-    padding: 0 16px;
+    margin: 0 1rem;
+    font-size: 1.12rem;
+    font-weight: bold;
   }
   li#first-link {
     margin-right: auto;
-  }
-}
-
-@media (max-width: 767px) {
-  .nav-toggle {
-    display: block;
-  }
-  ul {
-    display: none;
-  }
-  ul.open {
-    display: flex;
   }
 }
