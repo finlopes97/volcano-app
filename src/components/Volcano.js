@@ -67,6 +67,7 @@ function Volcano() {
     scales: {
       y: {
         beginAtZero: true,
+        maintainAspectRatio: false,
       },
     },
   };

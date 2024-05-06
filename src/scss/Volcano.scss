@@ -13,12 +13,13 @@
 .volcano-info {
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .volcano-info-card {
   margin: 1rem;
-  width: 90%;
 }
+
 
 .volcano-map-parent {
   display: flex;
@@ -46,7 +47,7 @@
   }
 
   .volcano-info-card {
-    width: 45%;
+    width: 50%;
   }
 
   .volcano-map-parent {
