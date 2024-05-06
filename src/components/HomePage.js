@@ -18,7 +18,7 @@ function HomePage() {
     <main>
       <div className="container row jumbotron">
         <div className="container col">
-          <h1>Volcano Watch</h1>
+          <h1>About volcano watch.</h1>
           <blockquote>
             I'm baby vegan brunch chillwave, flexitarian keytar snackwave
             austin. Pickled poke crucifix, trust fund meggings fam iPhone

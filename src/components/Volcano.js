@@ -106,6 +106,8 @@ function Volcano() {
             volcano.longitude ? parseFloat(volcano.longitude) : 0,
           ]}
           defaultZoom={11}
+          metaWheelZoom={true}
+          metaWheelZoomWarning="Hold the CTRL or CMD key to zoom."
         >
           <Marker
             width={50}
