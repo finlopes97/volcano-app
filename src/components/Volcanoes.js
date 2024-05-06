@@ -12,7 +12,16 @@ function Volcanoes() {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [populatedWithin, setPopulationWithin] = useState("");
-  const [message, setMessage] = useState("");
+  const [usePagination, setUsePagination] = useState(window.innerWidth > 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setUsePagination(window.innerWidth > 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     fetchCountries();
@@ -38,7 +47,6 @@ function Volcanoes() {
   const fetchVolcanoes = () => {
     if (!selectedCountry) {
       setRowData([]);
-      setMessage("Please select a country");
       return;
     }
 
@@ -55,9 +63,7 @@ function Volcanoes() {
       .then((data) => {
         if (Array.isArray(data) && data.length > 0) {
           setRowData(data);
-          setMessage("");
         } else {
-          setMessage("Ain't no volcanoes here pardner.");
           setRowData([]);
         }
       })
@@ -116,7 +122,7 @@ function Volcanoes() {
   };
 
   return (
-    <div className="ag-theme-material" style={{ height: 300, width: "100%" }}>
+    <div className="ag-theme-material">
       <div className="volcano-filters">
         <select value={selectedCountry} onChange={onCountryChange}>
           <option value="">Select a country</option>
@@ -134,13 +140,12 @@ function Volcanoes() {
           <option value="100km">100 km</option>
         </select>
       </div>
-      {message && <div className="volcano-message">{message}</div>}
       <AgGridReact
         rowData={rowData}
         columnDefs={columnDefs}
         onRowClicked={handleRowClicked}
         domLayout="autoHeight"
-        pagination={true}
+        pagination={usePagination}
         animateRows={true}
       />
     </div>

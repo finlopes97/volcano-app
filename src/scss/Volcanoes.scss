@@ -46,6 +46,17 @@
 }
 
 .ag-theme-material {
-  width: calc(100% - 16px);
+  background-color: map-get(map-get($themes, light), background);
+  width: 100%;
   height: auto;
+
+  .ag-root-wrapper {
+    background-color: map-get(map-get($themes, light), background);
+    color: map-get(map-get($themes, light), text);
+  }
+
+  .ag-header {
+    background-color: map-get(map-get($themes, light), background);
+    color: map-get(map-get($themes, light), text);
+  }
 }

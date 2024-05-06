@@ -54,8 +54,17 @@
 }
 
 .ag-theme-material {
-  width: calc(100% - 16px);
+  background-color: #fefbfb;
+  width: 100%;
   height: auto;
+}
+.ag-theme-material .ag-root-wrapper {
+  background-color: #fefbfb;
+  color: #1f0a0b;
+}
+.ag-theme-material .ag-header {
+  background-color: #fefbfb;
+  color: #1f0a0b;
 }
 
 /*# sourceMappingURL=Volcanoes.css.map */
