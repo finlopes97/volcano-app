@@ -64,7 +64,7 @@ function HomePage() {
           )}
         </div>
       </div>
-      <div className="container row quote parallax"></div>
+      <div className="container row quote parallax" aria-label="A parallax image of a volcano."></div>
       <HomePageCards />
     </main>
   );

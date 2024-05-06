@@ -108,6 +108,7 @@ function Volcano() {
           defaultZoom={11}
           metaWheelZoom={true}
           metaWheelZoomWarning="Hold the CTRL or CMD key to zoom."
+          ariaLabel="A map of the volcano"
         >
           <Marker
             width={50}

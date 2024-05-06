@@ -103,6 +103,7 @@ function Login() {
               id="hide-password"
               onClick={toggleShowPassword}
               className="hide-password"
+              aria-label="Hide password button."
             >
               {showPassword ? (
                 <FontAwesomeIcon icon={faEye} />

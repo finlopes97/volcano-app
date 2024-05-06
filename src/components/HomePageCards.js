@@ -57,15 +57,8 @@ function HomePageCards() {
                 defaultZoom={11}
                 metaWheelZoom={true}
                 metaWheelZoomWarning="Hold the CTRL or CMD key to zoom."
+                ariaLabel="A map of the volcano"
               >
-                <Marker
-                  width={50}
-                  anchor={[
-                    volcano.latitude ? parseFloat(volcano.latitude) : 0,
-                    volcano.longitude ? parseFloat(volcano.longitude) : 0,
-                  ]}
-                  color="red"
-                />
               </Map>
             </div>
             <p>Country: {volcano.country}</p>

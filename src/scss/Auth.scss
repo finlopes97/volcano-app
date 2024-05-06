@@ -8,8 +8,6 @@
 .auth-form {
   width: 90%;
   padding: 16px;
-  justify-content: center;
-  align-items: center;
   max-width: 500px;
   margin: auto;
 
@@ -31,7 +29,7 @@
     font: inherit;
     color: inherit;
     font-weight: 500;
-    padding: 12px 24px;
+    padding: 12px 12px;
     margin: 8px;
     width: calc(100% - 16px);
     border: none;
