@@ -80,13 +80,13 @@ function Volcano() {
     <div className="container col volcano-content">
       <div className="container volcano-info">
         <div className="container col volcano-info-card">
-          <h2>{volcano.name}</h2>
-          <p>Country: {volcano.country}</p>
-          <p>Region: {volcano.region}</p>
-          <p>Subregion: {volcano.subregion}</p>
-          <p>Last Eruption: {volcano.last_eruption}</p>
-          <p>Summit: {volcano.summit}</p>
-          <p>Elevation: {volcano.elevation}</p>
+          <h1>{volcano.name}</h1>
+          <p>Country: <span className="endpoint-info">{volcano.country}</span></p>
+          <p>Region: <span className="endpoint-info">{volcano.region}</span></p>
+          <p>Subregion: <span className="endpoint-info">{volcano.subregion}</span></p>
+          <p>Last Eruption: <span className="endpoint-info">{volcano.last_eruption}</span></p>
+          <p>Summit: <span className="endpoint-info">{volcano.summit}</span></p>
+          <p>Elevation: <span className="endpoint-info">{volcano.elevation}</span></p>
         </div>
         <div className="container col volcano-info-card">
           <h2>Population Data</h2>

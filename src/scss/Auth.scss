@@ -1,11 +1,24 @@
 @import "Variables";
 @import "Containers";
 
+@keyframes fadeInScale {
+  from {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .auth-heading {
   margin-bottom: 24px;
+  animation: fadeInScale 500ms ease-out forwards;
 }
 
 .auth-form {
+
   width: 90%;
   padding: 16px;
   max-width: 500px;
