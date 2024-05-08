@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +10,6 @@ function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(true);
-  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleGoBack = () => {
@@ -19,10 +18,6 @@ function Login() {
 
   const handleSignUp = () => {
     navigate(`/signup`);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
   };
 
   const toggleShowPassword = () => {
