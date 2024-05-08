@@ -1,4 +1,3 @@
-
 @import "Variables";
 @import "Containers";
 
@@ -21,7 +20,6 @@
   margin: 1rem;
 }
 
-
 .volcano-map-parent {
   display: flex;
   justify-content: center;
@@ -35,7 +33,8 @@
 }
 
 .endpoint-info {
-  color: map-get(map-get($themes, light), accent);
+  font-style: italic;
+  color: map-get(map-get($themes, light), primary);
 }
 
 @media (min-width: 768px) {
@@ -50,14 +49,15 @@
   }
 
   .volcano-info-card {
-    width: 50%;
+    width: 100%;
 
     h1 {
-      font-size: 2.25rem;
+      text-align: right;
+      font-size: 2rem;
     }
     p {
       text-align: right;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
   }
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Map, Marker } from "pigeon-maps";
+import { Map } from "pigeon-maps";
 
 import "../style/HomePageCards.css";
 

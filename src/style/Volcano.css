@@ -44,7 +44,8 @@
 }
 
 .endpoint-info {
-  color: #e55254;
+  font-style: italic;
+  color: #d03e40;
 }
 
 @media (min-width: 768px) {
@@ -57,14 +58,15 @@
     justify-content: space-around;
   }
   .volcano-info-card {
-    width: 50%;
+    width: 100%;
   }
   .volcano-info-card h1 {
-    font-size: 2.25rem;
+    text-align: right;
+    font-size: 2rem;
   }
   .volcano-info-card p {
     text-align: right;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   .volcano-map-parent {
     width: 100%;
