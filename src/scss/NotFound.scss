@@ -14,14 +14,12 @@
   hr {
     margin: 1rem 0;
   }
-  h3 {
-    margin-bottom: 12px;
-  }
-  h4 {
-    margin-bottom: 8px;
-  }
-  p {
+  .prelude {
     line-height: 2;
     margin: 12px;
+    text-align: center;
+  }
+  a {
+    color: map-get(map-get($themes, light), accent);
   }
 }

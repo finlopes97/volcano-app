@@ -12,7 +12,7 @@ function HomePageCards() {
   const [volcanoes, setVolcanoes] = useState([]);
   const [volcanoIds, setVolcanoIds] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-	
+
   useEffect(() => {
     const ids = [
       getRandomNumber(),
@@ -45,7 +45,9 @@ function HomePageCards() {
       <div className="container cards">
         {volcanoes.map((volcano, index) => (
           <div key={index} className="card">
-            <h4 className="card-title">{volcano.name}</h4>
+            <Link to={`/volcano/${volcanoIds[index]}`} className="volcano-link">
+              <h4 className="card-title">{volcano.name}</h4>
+            </Link>
             <div className="volcano-card-map">
               <Map
                 twoFingerDrag={true}
@@ -58,8 +60,7 @@ function HomePageCards() {
                 metaWheelZoom={true}
                 metaWheelZoomWarning="Hold the CTRL or CMD key to zoom."
                 ariaLabel="A map of the volcano"
-              >
-              </Map>
+              ></Map>
             </div>
             <p>Country: {volcano.country}</p>
             <p>Region: {volcano.region}</p>
